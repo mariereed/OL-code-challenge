@@ -75,8 +75,9 @@ type Props = {
   };
 };
 
+// HERE IS THE HELLO WORLD COMPONENT!!!!!!!!!!!!!!!!!!!!
 const HelloWorldComponent = () => (
-  <div>Hello, World!</div>
+  <div>Hello, World! This is Marie!</div>
 );
 
 const AppContainer = (props :Props) => (
@@ -89,6 +90,7 @@ const AppContainer = (props :Props) => (
       </AppHeaderInnerWrapper>
     </AppHeaderOuterWrapper>
     <Switch>
+      // HERE IS WHERE IT IS ADDED TO THE APP!!!!!!!!!!!!!!!!!!!!
       <Route path={Routes.ROOT} component={HelloWorldComponent} />
       <Redirect to={Routes.ROOT} />
     </Switch>

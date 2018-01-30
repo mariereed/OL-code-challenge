@@ -76,6 +76,7 @@ LatticeAuth.configure({
 const routerHistory = initializeRouterHistory();
 const reduxStore = initializeReduxStore(routerHistory);
 
+// HERE THE APP CONTAINER IS ADDED TO THE DOM!!!!!!!!!!!!!!
 ReactDOM.render(
   <Provider store={reduxStore}>
     <ConnectedRouter history={routerHistory}>
