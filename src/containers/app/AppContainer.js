@@ -96,9 +96,9 @@ var dataAssociationType = [{"entityType":{"id":"09e3ab1f-fa13-4371-93d7-e7adf61c
 //   return (majorDiv.innerHTML);
 // }
 
-function displayPropertyTypeRows() {
+function displayRows(dataType) {
 
-  var namesList = dataPropertyType.map(function(property) {
+  var namesList = dataType.map(function(property) {
                   return ( <p>{property.title}</p> );
                   }
                   );
@@ -109,7 +109,7 @@ function displayPropertyTypeRows() {
 
 
 function displayRowDetails(rowNumber=0){
-  var dataObject = dataPropertyType[0];
+  var dataObject = dataPropertyType[rowNumber];
 
   var id = dataObject.id;
   var type = dataObject.type.namespace + "." + dataObject.type.name;
@@ -151,7 +151,7 @@ const HelloWorldComponent = () => (
     <div>Hello, World! This is Marie!</div>
     <div className="window">
       <div className="left-facing">
-        {displayPropertyTypeRows()}
+        {displayRows(dataPropertyType)}
       </div>
       <div className="right-facing">
         {displayRowDetails(0)}
