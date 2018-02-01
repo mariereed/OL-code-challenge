@@ -153,7 +153,15 @@ class RowsComponent extends React.Component {
                   }
                   );
 
-    return (<div className="feed">{namesList}</div>);
+    return (<div>
+              <div className="left-facing">
+                <div className="feed">{namesList}</div>
+              </div>
+              <div className="right-facing">
+                <RowDetailsComponent dataType={dataPropertyType} dataTypeName="Property Type" rowNumber={this.state.row} />
+              </div>
+            </div>
+            );
   }
 }
 
@@ -174,12 +182,7 @@ class EdmComponent extends React.Component {
       <div>
         <div>Hello, World! This is Marie!</div>
         <div className="window">
-          <div className="left-facing">
-            <RowsComponent dataType={dataPropertyType} />
-          </div>
-          <div className="right-facing">
-            <RowDetailsComponent dataType={dataPropertyType} dataTypeName="Property Type" rowNumber={this.state.row} />
-          </div>
+          <RowsComponent dataType={dataPropertyType} />
         </div>
       </div>
       );
