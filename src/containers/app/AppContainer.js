@@ -180,7 +180,11 @@ class EdmComponent extends React.Component {
   render () {
     return (
       <div>
-        <div>Hello, World! This is Marie!</div>
+        <nav className="navTab">
+          <a className="edmTab" >Property Types</a>
+          <a className="edmTab" >Entity Types</a>
+          <a className="edmTab" >Association Types</a>
+        </nav>
         <div className="window">
           <RowsComponent dataType={dataPropertyType} />
         </div>
