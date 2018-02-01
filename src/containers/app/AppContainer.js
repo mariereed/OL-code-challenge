@@ -141,27 +141,20 @@ class RowsComponent extends React.Component {
   }
 
   handleClick(e) {
-    console.log('you clicked it');
-    this.setState({
-      row: e.target.id
-    });
+    this.props.callback(e.target.id);
   }
 
   render () {
     var namesList = this.props.dataType.map((property) => {
-                  return ( <p id={this.props.dataType.indexOf(property)} onClick={(e) => this.handleClick(e)}>{property.title}</p> );
-                  }
-                  );
+      return (
+        <p id={this.props.dataType.indexOf(property)}
+          onClick={(e) => this.handleClick(e)}>
+          {property.title}
+        </p>);
+      }
+    );
 
-    return (<div>
-              <div className="left-facing">
-                <div className="feed">{namesList}</div>
-              </div>
-              <div className="right-facing">
-                <RowDetailsComponent dataType={dataPropertyType} dataTypeName="Property Type" rowNumber={this.state.row} />
-              </div>
-            </div>
-            );
+    return (<div className="feed">{namesList}</div>);
   }
 }
 
@@ -186,7 +179,12 @@ class EdmComponent extends React.Component {
           <a className="edmTab" >Association Types</a>
         </nav>
         <div className="window">
-          <RowsComponent dataType={dataPropertyType} />
+          <div className="left-facing">
+            <RowsComponent dataType={dataPropertyType} callback={(id)=>this.setState({row: id})} />
+          </div>
+          <div className="right-facing">
+            <RowDetailsComponent dataType={dataPropertyType} dataTypeName="Property Type" rowNumber={this.state.row} />
+          </div>
         </div>
       </div>
       );
